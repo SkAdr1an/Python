@@ -9,15 +9,13 @@ class ForcaApp:
         self.root = root
         self.root.title("Jogo da Forca")
         
-        # Lista de palavras para o jogo
         self.palavras = ["python", "programacao", "desenvolvimento", "interface", "computador"]
         self.palavra = random.choice(self.palavras)
         self.palavra_oculta = ["_" for _ in self.palavra]
         self.letras_erradas = []
         self.tentativas = 6
         
-        # Configuração da interface
-        self.frame = tk.Frame(root)
+                self.frame = tk.Frame(root)
         self.frame.pack(padx=10, pady=10)
         
         self.label_palavra = tk.Label(self.frame, text=" ".join(self.palavra_oculta), font=("Helvetica", 24))
