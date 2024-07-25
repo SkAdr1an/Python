@@ -16,16 +16,13 @@ def gerar_senha(tamanho=15):
     if tamanho < 8:
         raise ValueError("A senha deve ter pelo menos 8 caracteres.")
     
-    # Definindo os conjuntos de caracteres
     caracteres_maiusculos = string.ascii_uppercase
     caracteres_minusculos = string.ascii_lowercase
     digitos = string.digits
     caracteres_especiais = string.punctuation
 
-    # Criando um conjunto de caracteres possíveis
     todos_caracteres = caracteres_maiusculos + caracteres_minusculos + digitos + caracteres_especiais
 
-    # Garantindo que a senha contenha pelo menos um caractere de cada tipo
     senha = [
         random.choice(caracteres_maiusculos),
         random.choice(caracteres_minusculos),
@@ -33,15 +30,12 @@ def gerar_senha(tamanho=15):
         random.choice(caracteres_especiais)
     ]
 
-    # Preenchendo o restante da senha com caracteres aleatórios
     senha += random.choices(todos_caracteres, k=tamanho - len(senha))
 
-    # Embaralhando os caracteres para garantir uma distribuição aleatória
     random.shuffle(senha)
 
     return ''.join(senha)
 
-# Exemplo de uso
 if __name__ == "__main__":
     tamanho_desejado = 16  # Você pode definir o tamanho desejado aqui
     senha_gerada = gerar_senha(tamanho=tamanho_desejado)
